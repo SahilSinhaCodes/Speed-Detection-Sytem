@@ -16,10 +16,9 @@ pip install ultralytics opencv-python pandas
 
 ## Usage
 1. Clone the repository:
-git clone <repository_url>
-cd <repository_folder>
+git clone [<repository_url>](https://github.com/SahilSinhaCodes/Speed-Detection-Sytem)
 
-text
+
 
 2. Place your input video file (e.g., `highway.mp4`) in the root directory.
 
