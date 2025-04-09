@@ -16,7 +16,7 @@ pip install ultralytics opencv-python pandas
 
 ## Usage
 1. Clone the repository:
-git clone [<repository_url>](https://github.com/SahilSinhaCodes/Speed-Detection-Sytem)
+git clone (https://github.com/SahilSinhaCodes/Speed-Detection-Sytem)
 
 
 
