@@ -1,85 +1,50 @@
-# 🚗 Vehicle Speed Estimation using YOLOv8 and OpenCV
+# Speed Estimation Using YOLOv8
 
-This project estimates the speed of vehicles in a video using object detection (YOLOv8), tracking, and OpenCV. It assigns IDs to each vehicle and calculates their speeds based on movement across frames.
+## Overview
+This repository implements a vehicle speed estimation system using the YOLOv8 object detection model and a custom tracking algorithm. The program processes video footage to detect vehicles, track their movement, and estimate their speed as they cross predefined lines.
 
----
+## Features
+- Vehicle detection using YOLOv8.
+- Custom tracking algorithm for assigning unique IDs to vehicles.
+- Speed estimation based on time taken to cross two horizontal lines.
+- Saves annotated frames and generates an output video.
 
-## 📁 Project Structure
+## Requirements
+Install the required Python packages:
+pip install ultralytics opencv-python pandas
 
-├── main.py # Main script to run vehicle speed estimation
-├── tracker.py # Tracking logic for assigning IDs to vehicles
-├── vehicles.mp4 # Sample video footage (input)
-├── README.md # Project documentation
 
-yaml
-Copy
-Edit
+## Usage
+1. Clone the repository:
+git clone <repository_url>
+cd <repository_folder>
 
----
+text
 
-## 🚀 Getting Started
+2. Place your input video file (e.g., `highway.mp4`) in the root directory.
 
-### 1. Clone the Repository
+3. Run the script:
+python speed_estimate.ipynb
 
-```bash
-git clone https://github.com/yourusername/vehicle-speed-estimation.git
-cd vehicle-speed-estimation
-2. Install Dependencies
-Make sure you have Python 3.8+ and pip installed.
 
-bash
-Copy
-Edit
-pip install ultralytics opencv-python
-3. Add a Video
-Place your video file in the root directory and rename it to:
+4. Output:
+- Annotated frames are saved in the `detected_frames` folder.
+- Final annotated video is saved as `output.avi`.
 
-Copy
-Edit
-vehicles.mp4
-Alternatively, update the filename in main.py if you want to use a different name.
+## Configuration
+- Adjust `red_line_y` and `blue_line_y` in the script to set line positions for speed estimation.
+- Set `distance` (default: 10 meters) to match real-world distance between the two lines.
 
-🧠 How It Works
-YOLOv8 detects vehicles frame-by-frame.
+## Output Example
+The output includes:
+- Bounding boxes around detected vehicles.
+- Vehicle IDs and speeds displayed near bounding boxes.
 
-A custom tracker (from tracker.py) assigns unique IDs to each vehicle.
+## Notes
+- Ensure your input video resolution matches or is resized appropriately for optimal performance.
+- Accuracy depends on correct calibration of real-world distances.
 
-Speeds are estimated by measuring pixel distance moved across frames and converting it using a scaling factor (based on assumptions).
-
-🛠️ Configuration Notes
-The current speed calculation assumes a fixed scale — for accurate real-world speed, you’d need to calibrate based on camera angle and scene depth.
-
-Detected speeds are overlaid in km/h on the video output.
-
-▶️ Run the Project
-bash
-Copy
-Edit
-python main.py
-This will open a window showing vehicles with bounding boxes, unique IDs, and estimated speeds.
-
-📦 Requirements
-Python 3.8+
-
-OpenCV
-
-Ultralytics (for YOLOv8)
-
-Install them using:
-
-bash
-Copy
-Edit
-pip install opencv-python ultralytics
-📸 Sample Output
-Bounding boxes with vehicle IDs
-
-Speed in km/h displayed above each vehicle
-
-📄 License
-This project is licensed under the MIT License.
-
-✨ Credits
-YOLOv8 by Ultralytics
-
-Inspired by real-time object tracking use-cases and traffic analytics
+## Acknowledgments
+This project uses:
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) for object detection.
+- OpenCV for image processing and visualization.
